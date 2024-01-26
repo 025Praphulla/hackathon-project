@@ -1,59 +1,76 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8e3f3;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
 }
 
 .container {
-    border: 2px solid black;
-    height: 50vh;
-    width: 20vw;
-    border-radius: 8px;
+  border: 2px solid black;
+  height: 47vh;
+  width: 20vw;
+  border-radius: 8px;
 }
 
 form {
-    position: relative;
-    top: 10%;
+  position: relative;
+  top: 10%;
 }
 
 #display-login {
-    text-align: center;
-    margin: 2rem 2rem 0 2rem;
+  text-align: center;
+  margin: 2rem 2rem 0 2rem;
+  color: #ffa07a;
 }
 
 #username,
 #password,
 #login {
-    border: 2px solid black;
-    width: 80%;
-    margin: 0.5rem 2rem 0.5rem;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: 200ms all ease-in-out;
+  border: 2px solid black;
+  width: 80%;
+  margin: 0.5rem 2rem 0.5rem 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: 200ms all ease-in-out;
 }
-
+#login {
+  margin: 1rem 2rem 1rem 2rem;
+  background-color: #9b59b6;
+}
 #login:hover {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .show-password {
-    margin: 0.5rem 2rem;
+  margin: 0.5rem 2rem;
 }
 
 #ask-user {
-    position: relative;
-    top: 20%;
-    text-align: center;
+  margin: 2rem;
+  text-align: center;
 }
 
 #register {
-    text-decoration: none;
-    color: green;
+  text-decoration: none;
+  color: green;
+}
+
+.username,
+.password {
+  display: flex;
+}
+.username i,
+.password i {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }

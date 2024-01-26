@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Include Leaflet library -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <!-- Include Leaflet Routing Machine library -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <!-- Include QRCode.js library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Include HTML5 QRCode library -->
+    <script src="https://rawgit.com/sitepoint-editors/html5-qrcode/gh-pages/js/html5-qrcode.js"></script>
+
+    <!-- Your existing CSS file -->
     <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
     <nav>
-      <div class="user-balance">Balance: <span>Rs 5000</span></div>
+      <div id="user-balance"></div>
       <div class="user-profile">
-        <div>User</div>
+        <div><i class="ph ph-user" id="user-logo"></i></div>
       </div>
     </nav>
     <div id="map"></div>
@@ -26,29 +40,29 @@
     <footer>
       <form id="distanceForm">
         <div class="pickup-section">
-          <label for="pickup" class="pickup-info">Pickup Location:</label>
           <input
             type="text"
             id="pickup"
             name="pickup"
-            class="destination-info"
+            class="pickup-info"
+            placeholder="Pickup Location:"
             required
           />
         </div>
 
         <div class="destination-section">
-          <label for="destination">Destination Location:</label>
           <input
             type="text"
             id="destination"
             name="destination"
             class="destination-info"
+            placeholder="Destination Location:"
             required
           />
         </div>
 
         <div class="confirm-section">
-          <button type="submit">Calculate Distance</button>
+          <button type="submit" class="confirm-button">Calculate Fare and Distance</button>
         </div>
       </form>
       <div class="final-user-info">
@@ -56,6 +70,6 @@
         <div id="qr-code"></div>
       </div>
     </footer>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
