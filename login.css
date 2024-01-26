@@ -5,32 +5,52 @@
 }
 
 body {
-  height: 100vh;
+  
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background-color: #f8e3f3;
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
 }
+.container {
+  display:flex;
+  border: 2px solid black;
+  height: 75vh;
+  width: 80%;
+  border-radius: 8px;
+  
+}
 .leftside{
   
     flex: 1;
-    padding: 30px;
-    margin-left: 200px;
+    padding: 30px; 
+    
+}
+
+.leftside form {
+  display: flex;
+  flex-direction: column;
+}
+.rightside{
+  flex: 1.2;
+  padding: 30px;
+  border:0.5px solid black;
+  
+ 
+ 
+
 }
 
 
-.container {
-  border: 2px solid black;
-  height: 55vh;
-  width: 20vw;
-  border-radius: 8px;
-}
+
+
 
 form {
   position: relative;
   top: 10%;
+ 
 }
 
 #display-login {
@@ -91,4 +111,6 @@ form {
   display:flex;
   justify-content:center;
 }
-
+button:hover{
+  cursor:pointer;
+}

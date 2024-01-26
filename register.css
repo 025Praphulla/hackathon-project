@@ -14,17 +14,32 @@ body
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
 }
-.leftside{
+.leftside {
     
     flex: 1;
     padding: 30px;
-    margin-left: 200px;
+    
 }
+.leftside form {
+    display: flex;
+    flex-direction: column;
+  }
+  .rightside{
+  flex: 1;
+  padding: 30px;
+  border:0.5px solid black;
+  height:75vh;
+  
+}
+ 
 .container
 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid black;
-    height: 55vh;
-    width: 20vw;
+    height: 75vh;
+    width: 80%;
     border-radius: 8px;
 }
 form
@@ -94,5 +109,8 @@ form
 .logo{
     display:flex;
     justify-content:center;
+}
+button:hover{
+    cursor: pointer;
 }
 
