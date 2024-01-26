@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Include Leaflet library -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <!-- Include Leaflet Routing Machine library -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+    />
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
     <nav>
-        <div class="user-balance">Balance: <span>Rs 5000</span></div>
-        <div class="user-profile">
-          <div>User</div>
-        </div>
-      </nav>
+      <div class="user-balance">Balance: <span>Rs 5000</span></div>
+      <div class="user-profile">
+        <div>User</div>
+      </div>
+    </nav>
     <div id="map"></div>
 
-    
     <footer>
-        <form id="distanceForm">
-            <div class="pickup-section">
-                <label for="pickup" class="pickup-info">Pickup Location:</label>
-                <input type="text" id="pickup" name="pickup" class="destination-info" required>
-            </div>
-          
-            <div class="destination-section">
-                <label for="destination">Destination Location:</label>
-                <input type="text" id="destination" name="destination" class="destination-info" required>
-            </div>
-          
-            <div class="confirm-section">
-                <button type="submit">Calculate Distance</button>
-            </div>
-        </form>
+      <form id="distanceForm">
+        <div class="pickup-section">
+          <label for="pickup" class="pickup-info">Pickup Location:</label>
+          <input
+            type="text"
+            id="pickup"
+            name="pickup"
+            class="destination-info"
+            required
+          />
+        </div>
+
+        <div class="destination-section">
+          <label for="destination">Destination Location:</label>
+          <input
+            type="text"
+            id="destination"
+            name="destination"
+            class="destination-info"
+            required
+          />
+        </div>
+
+        <div class="confirm-section">
+          <button type="submit">Calculate Distance</button>
+        </div>
+      </form>
+      <div class="final-user-info">
         <div id="result"></div>
         <div id="qr-code"></div>
+      </div>
     </footer>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

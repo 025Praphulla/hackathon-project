@@ -5,25 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yatrease - Login</title>
     <link rel="stylesheet" href="login.css">
+    <style>
+        /* Add some styling for the checkbox */
+        .show-password {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Login to Yatrease</h2>
+        <h2 id="display-login">Login to Yatrease</h2>
         <form id="loginForm">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+            <div class="username">
+                <input type="text" id="username" name="username" placeholder="Username/Email: " required>
             </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+            <div class="password">
+                <input type="password" id="password" name="password" placeholder="Password: " required>
+                <!-- Add a checkbox for the password show/hide toggle -->
             </div>
-            <button type="submit">Login</button>
+            <div class="show-password">
+                <input type="checkbox" id="show-password"> Show Password
+            </div>
+            <button type="submit" id="login">Login</button>
         </form>
-        <p>Don't have an account? <a href="register.html">Register here</a></p>
+        <p id="ask-user">Don't have an account? <a href="register.html" id="register">Register here</a></p>
     </div>
 
+    <!-- JavaScript for the password toggle functionality and checking user credentials -->
     <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordInput = document.getElementById('password');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -31,16 +45,17 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            // Retrieve stored username and password from local storage
+            // Retrieve user details from local storage
             var storedUsername = localStorage.getItem('username');
             var storedPassword = localStorage.getItem('password');
 
-            // Check if the entered credentials match the stored credentials
+            // Check if entered credentials match stored credentials
             if (username === storedUsername && password === storedPassword) {
-                // Redirect user to main.html
+                // Redirect user to dashboard or desired page
                 window.location.href = 'main.html';
             } else {
-                alert('Invalid username or password.');
+                // Display an error message or handle incorrect credentials
+                alert('Invalid username or password. Please try again.');
             }
         });
     </script>
