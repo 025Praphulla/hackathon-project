@@ -34,7 +34,9 @@ nav {
 
 .pickup-info,
 .destination-info {
-  width: 100%;
+  width: 50vw;
+  margin: 0.1rem;
+  text-align: center;
 }
 
 footer{
@@ -53,6 +55,6 @@ footer{
 {
     width: 50%;
     text-align: center;
-    margin: 0.1rem;
-    padding: 0.3rem;
+    margin: 0.3rem;
+    padding: 0.2rem;
 }
