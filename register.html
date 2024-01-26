@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h2 id="display-register">Register for Yatrease</h2>
-        <form>
+        <form id="registerForm">
             <div class="username">
                 <input type="text" id="username" name="username" placeholder="Username/Email: " required>
             </div>
@@ -31,11 +31,26 @@
         <p id="ask-user">Already have an account? <a href="login.html" id="login">Login here</a></p>
     </div>
 
-    <!-- Add JavaScript for the password toggle functionality -->
+    <!-- JavaScript for the password toggle functionality and saving user details -->
     <script>
         document.getElementById('show-password').addEventListener('change', function() {
             var passwordInput = document.getElementById('password');
             passwordInput.type = this.checked ? 'text' : 'password';
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get username and password from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Save user details to local storage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            // Redirect user to login page
+            window.location.href = 'login.html';
         });
     </script>
 </body>
