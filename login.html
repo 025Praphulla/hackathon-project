@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Login to Yatrease</h2>
-        <form action="login.php" method="POST">
+        <form id="loginForm">
             <div class="input-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -22,5 +22,27 @@
         </form>
         <p>Don't have an account? <a href="register.html">Register here</a></p>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get username and password from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Retrieve stored username and password from local storage
+            var storedUsername = localStorage.getItem('username');
+            var storedPassword = localStorage.getItem('password');
+
+            // Check if the entered credentials match the stored credentials
+            if (username === storedUsername && password === storedPassword) {
+                // Redirect user to main.html
+                window.location.href = 'main.html';
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+    </script>
 </body>
 </html>
