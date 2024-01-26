@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  columns: 2;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+.user-balance {
+  border: 2px solid black;
+  margin: 0 0.5rem;
+  padding: 20px;
+}
+.user-profile {
+  border: 2px solid black;
+  margin: 0 0.5rem;
+  padding: 20px;
+}
+
+.map-section {
+  border: 2px solid black;
+  height: 80vh;
+  margin: 0 0.5rem;
+}
+.info-section {
+  display: flex;
+  columns: 2;
+}
+
+.pickup-info,
+.destination-info {
+  width: 100%;
+}
+
+footer{
+    margin: 0 0.5rem;
+    border: 2px solid black;
+    height: 10vh;
+}
+
+.confirm-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.confirm-button
+{
+    width: 50%;
+    text-align: center;
+    margin: 0.1rem;
+    padding: 0.3rem;
+}
