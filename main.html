@@ -1,58 +1,21 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main</title>
-  </head>
-  <link rel="stylesheet" href="main.css" />
-  <body>
-    <nav>
-      <div class="user-balance">Balance: <span>Rs 500</span></div>
-      <div class="user-profile">
-        <div>User</div>
-      </div>
-    </nav>
-    <div class="map-section">This is map section</div>
-    <footer>
-      <div class="info-section">
-        <select id="dropdown" name="dropdown" class="pickup-info">
-            <option value="" disabled selected>Choose pickup location</option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select>
-
-        <select id="dropdown" name="dropdown" class="pickup-info">
-            <option value="" disabled selected>Choose destination location</option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select>
-      </div>
-      <div class="confirm-section">
-        <button type="button" class="confirm-button">Confirm</button>
-      </div>
-    </footer>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distance Calculator with Leaflet</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <!-- Include Leaflet library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Include Leaflet Routing Machine library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
     <style>
         #map {
             height: 400px;
-            width: 100%;
         }
     </style>
 </head>
 <body>
-    <h1>Distance Calculator with Leaflet</h1>
 
     <div id="map"></div>
 
@@ -63,12 +26,11 @@
         <label for="destination">Destination Location:</label>
         <input type="text" id="destination" required>
         <br>
-        <button type="submit">Calculate Distance and Fare</button>
+        <button type="submit">Calculate Distance</button>
     </form>
 
     <div id="result"></div>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([27.7172, 85.3240], 13); // Centered on Kathmandu
 
@@ -78,11 +40,15 @@
 
         var pickupMarker = L.marker([0, 0], { draggable: true }).addTo(map);
         var destinationMarker = L.marker([0, 0], { draggable: true }).addTo(map);
-        var polyline;
 
-        function updateMarker(marker, latlng) {
-            marker.setLatLng(latlng);
-        }
+        // Create a routing control with your custom options
+        var control = L.Routing.control({
+            waypoints: [
+                L.latLng(27.7172, 85.3240), // Initial waypoint (Kathmandu)
+                L.latLng(27.7172, 85.3240)  // Initial waypoint (Kathmandu)
+            ],
+            routeWhileDragging: true
+        }).addTo(map);
 
         document.getElementById("distanceForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -103,19 +69,15 @@
                 var destinationLat = destinationData[0].lat;
                 var destinationLon = destinationData[0].lon;
 
-                updateMarker(pickupMarker, [pickupLat, pickupLon]);
-                updateMarker(destinationMarker, [destinationLat, destinationLon]);
+                pickupMarker.setLatLng([pickupLat, pickupLon]);
+                destinationMarker.setLatLng([destinationLat, destinationLon]);
 
-                if (polyline) {
-                    map.removeLayer(polyline); // Remove previous polyline
-                }
-
-                var latlngs = [
-                    [pickupLat, pickupLon],
-                    [destinationLat, destinationLon]
+                var waypoints = [
+                    L.latLng(pickupLat, pickupLon),
+                    L.latLng(destinationLat, destinationLon)
                 ];
 
-                polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+                control.setWaypoints(waypoints);
 
                 var distance = pickupMarker.getLatLng().distanceTo(destinationMarker.getLatLng()) / 1000; // in kilometers
 
@@ -135,6 +97,6 @@
             });
         });
     </script>
+
 </body>
 </html>
-
