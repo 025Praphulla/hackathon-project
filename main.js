@@ -76,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Display the result and QR code divs
         document.getElementById("result").style.display = "block";
         document.getElementById("qr-code").style.display = "block";
+
+        scanQR(fare);
       })
       .catch(function (error) {
         console.error("Error:", error);
@@ -102,4 +104,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var balance = 500;
   document.getElementById("user-balance").innerHTML = "Balance: Rs " + balance;
+
+// Function to simulate scanning QR code and update balance
+function scanQR(fareAmount) {
+  // Simulate processing transaction and updating balance
+  balance -= fareAmount;
+  document.getElementById("user-balance").innerHTML = "Balance: Rs " + balance;
+}
+
+
+
 });

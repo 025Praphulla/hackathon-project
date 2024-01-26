@@ -13,10 +13,17 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
 }
+.leftside{
+  
+    flex: 1;
+    padding: 30px;
+    margin-left: 200px;
+}
+
 
 .container {
   border: 2px solid black;
-  height: 47vh;
+  height: 55vh;
   width: 20vw;
   border-radius: 8px;
 }
@@ -74,3 +81,14 @@ form {
   align-items: center;
   margin-left: 1rem;
 }
+#logophoto{
+  height: 50px;
+  width: 70px;
+  margin-bottom: -20px;
+
+}
+.logo{
+  display:flex;
+  justify-content:center;
+}
+
