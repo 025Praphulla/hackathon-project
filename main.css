@@ -27,34 +27,25 @@ nav {
   height: 80vh;
   margin: 0 0.5rem;
 }
-.info-section {
-  display: flex;
-  columns: 2;
-}
-
-.pickup-info,
-.destination-info {
-  width: 50vw;
-  margin: 0.1rem;
-  text-align: center;
-}
 
 footer{
     margin: 0 0.5rem;
     border: 2px solid black;
     height: 10vh;
 }
-
-.confirm-section
+#distanceForm
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+}
+.pickup-info, .destination-info
+{
+    width: 40vw;
 }
 .confirm-button
 {
     width: 50%;
-    text-align: center;
     margin: 0.3rem;
     padding: 0.2rem;
 }

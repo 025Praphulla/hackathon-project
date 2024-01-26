@@ -21,24 +21,23 @@
 
     
     <footer>
-        <div class="info-section">
-          <form id="distanceForm">
-            <label for="pickup" class="pickup-info">Pickup Location:</label>
-            <input type="text" id="pickup" name="pickup" class="pickup-info" required>
-            <br>
+        <form id="distanceForm">
+            <div class="pickup-section">
+                <label for="pickup" class="pickup-info">Pickup Location:</label>
+                <input type="text" id="pickup" name="pickup" class="destination-info" required>
+            </div>
           
-            <label for="destination" class="pickup-info">Destination Location:</label>
-            <input type="text" id="destination" name="destination" class="pickup-info" required>
-            <br>
+            <div class="destination-section">
+                <label for="destination">Destination Location:</label>
+                <input type="text" id="destination" name="destination" class="destination-info" required>
+            </div>
           
             <div class="confirm-section">
-              <button type="submit">Calculate Distance</button>
+                <button type="submit">Calculate Distance</button>
             </div>
-          </form>
-          
-        </div>
-      </footer>
-    <div id="result"></div>
+        </form>
+        <div id="result"></div>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>

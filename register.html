@@ -4,27 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yatrease - Register</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="register.css">
+    <style>
+        /* Add some styling for the checkbox */
+        .show-password {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Register for Yatrease</h2>
-        <form action="register.php" method="POST">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+        <h2 id="display-register">Register for Yatrease</h2>
+        <form>
+            <div class="username">
+                <input type="text" id="username" name="username" placeholder="Username/Email: " required>
             </div>
-            <div class="input-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <div class="password">
+                <input type="password" id="password" name="password" placeholder="Password: " required>
+                <!-- Add a checkbox for the password show/hide toggle -->
             </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+            <div class="show-password">
+                <input type="checkbox" id="show-password"> Show Password
             </div>
-            <button type="submit">Register</button>
+            <button type="submit" id="register">Register</button>
         </form>
-        <p>Already have an account? <a href="login.html">Login here</a></p>
+        <p id="ask-user">Already have an account? <a href="login.html" id="login">Login here</a></p>
     </div>
+
+    <!-- Add JavaScript for the password toggle functionality -->
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordInput = document.getElementById('password');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
 </body>
 </html>

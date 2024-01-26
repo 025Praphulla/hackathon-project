@@ -1,0 +1,61 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container
+{
+    border: 2px solid black;
+    height: 50vh;
+    width: 20vw;
+    border-radius: 8px;
+}
+form
+{
+    position: relative;
+    top: 10%;
+}
+#display-register
+{
+
+    text-align: center;
+    margin: 2rem 2rem 0 2rem;
+}
+#username, #password, #register
+{
+    border: 2px solid black;
+    width: 80%;
+    margin: 0.5rem 2rem 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: 200ms all ease-in-out;
+}
+#register:hover
+{
+    transform: scale(1.08);
+    
+}
+.show-password
+{
+    margin: 0.5rem 2rem ;
+}
+#ask-user
+{
+    position: relative;
+    top: 20%;
+    text-align: center;
+}
+
+#login
+{
+    text-decoration: none;
+    color: green;
+}
