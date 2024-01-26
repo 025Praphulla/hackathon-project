@@ -22,7 +22,7 @@ nav {
   padding: 20px;
 }
 
-.map-section {
+#map {
   border: 2px solid black;
   height: 80vh;
   margin: 0 0.5rem;
