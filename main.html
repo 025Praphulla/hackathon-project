@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -35,4 +35,106 @@
       </div>
     </footer>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Calculator with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Distance Calculator with Leaflet</h1>
+
+    <div id="map"></div>
+
+    <form id="distanceForm">
+        <label for="pickup">Pickup Location:</label>
+        <input type="text" id="pickup" required>
+        <br>
+        <label for="destination">Destination Location:</label>
+        <input type="text" id="destination" required>
+        <br>
+        <button type="submit">Calculate Distance and Fare</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([27.7172, 85.3240], 13); // Centered on Kathmandu
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var pickupMarker = L.marker([0, 0], { draggable: true }).addTo(map);
+        var destinationMarker = L.marker([0, 0], { draggable: true }).addTo(map);
+        var polyline;
+
+        function updateMarker(marker, latlng) {
+            marker.setLatLng(latlng);
+        }
+
+        document.getElementById("distanceForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var pickup = document.getElementById("pickup").value + ", Kathmandu";
+            var destination = document.getElementById("destination").value + ", Kathmandu";
+
+            Promise.all([
+                fetch('https://nominatim.openstreetmap.org/search?q=' + pickup + '&format=json&viewbox=85.277498,27.666667,85.453415,27.741809')
+                    .then(response => response.json()),
+                fetch('https://nominatim.openstreetmap.org/search?q=' + destination + '&format=json&viewbox=85.277498,27.666667,85.453415,27.741809')
+                    .then(response => response.json())
+            ]).then(function(responses) {
+                var pickupData = responses[0];
+                var destinationData = responses[1];
+
+                var pickupLat = pickupData[0].lat;
+                var pickupLon = pickupData[0].lon;
+                var destinationLat = destinationData[0].lat;
+                var destinationLon = destinationData[0].lon;
+
+                updateMarker(pickupMarker, [pickupLat, pickupLon]);
+                updateMarker(destinationMarker, [destinationLat, destinationLon]);
+
+                if (polyline) {
+                    map.removeLayer(polyline); // Remove previous polyline
+                }
+
+                var latlngs = [
+                    [pickupLat, pickupLon],
+                    [destinationLat, destinationLon]
+                ];
+
+                polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+                var distance = pickupMarker.getLatLng().distanceTo(destinationMarker.getLatLng()) / 1000; // in kilometers
+
+                // Calculate fare based on distance
+                var fare;
+                if (distance <= 5) {
+                    fare = 20;
+                } else if (distance > 5 && distance <= 10) {
+                    fare = 25;
+                } else {
+                    fare = 30;
+                }
+
+                document.getElementById("result").innerHTML = "Distance: " + distance.toFixed(2) + " km<br>Fare: NPR " + fare;
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
 </html>
+
