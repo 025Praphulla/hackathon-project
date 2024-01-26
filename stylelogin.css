@@ -1,0 +1,92 @@
+
+body{
+margin:0;
+padding:0;
+border:border-box;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 20px;
+background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+background-size: 400% 400%;
+animation: gradient 10s ease infinite;
+height: 100vh;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.container{
+    display:grid;
+    justify-content: center;
+   margin-top: 18vh;
+   padding:5px;
+   text-align:center;
+}
+   
+button{
+    margin-top:20px;
+    font-size:15px;
+    border:none;
+    width:100px;
+    color:white;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    
+    border-radius:30px;
+    height:30px;
+    cursor: pointer;
+}
+.logindata{
+    background-color: white;
+    padding:50px;
+    border-radius:30px;
+    border:none;
+    overflow: hidden;
+    
+}
+
+input{
+    border-radius:30px;
+    width:300px;
+    height:30px;
+    
+}
+input ,#username{
+    background-image:url(person-outline.svg);
+    background-repeat: no-repeat;
+}
+
+    input ,#password{
+        background-image:url(lock-closed-outline.svg);
+        background-repeat: no-repeat;
+        
+    
+
+}
+.input-group, label{
+    text-align: left;
+    padding:20px;
+}
+::placeholder{
+    text-align: center;
+}
+#password{
+    text-align: center;
+}
+.pass{
+    margin-top:20px;
+}
+
+img{
+    height:30px;
+}
+input:hover::placeholder{
+    background-color: transparent;
+}
