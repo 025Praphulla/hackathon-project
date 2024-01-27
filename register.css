@@ -10,7 +10,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;    
-    background-color: #F8E3F3 ;
+    background-color: #997e93;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
 }
@@ -27,7 +27,7 @@ body
   .rightside{
   flex: 1;
   padding: 30px;
-  border:0.5px solid black;
+  /* border:0.5px solid black; */
   height:75vh;
   
 }
@@ -37,7 +37,8 @@ body
     display:flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    background-color: #F8E3F3 ;
+    /* border: 2px solid black; */
     height: 75vh;
     width: 80%;
     border-radius: 8px;
@@ -101,9 +102,8 @@ form
     margin-left: 1rem ;
 }
 #logophoto{
-    height: 50px;
-    width: 70px;
-    margin-bottom: -20px;
+    height: 100px;
+    width:200px;
 
 }
 .logo{
