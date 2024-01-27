@@ -6,7 +6,6 @@
     <title>Yatrease - Login</title>
     <link rel="stylesheet" href="login.css">
     <style>
-        /* Add some styling for the checkbox */
         .show-password {
             margin-top: 10px;
         }
@@ -34,7 +33,6 @@
             <div class="password">
                 <i class="ph ph-lock"></i>
                 <input type="password" id="password" name="password" placeholder="Password: " required>
-                <!-- Add a checkbox for the password show/hide toggle -->
             </div>
             <div class="show-password">
                 <input type="checkbox" id="show-password"> Show Password
@@ -53,7 +51,6 @@
 </div>
 </div>
 
-    <!-- JavaScript for the password toggle functionality and checking user credentials -->
     <script>
         document.getElementById('show-password').addEventListener('change', function() {
             var passwordInput = document.getElementById('password');

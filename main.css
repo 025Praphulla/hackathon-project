@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
 }
 
 body {
   max-height: 100vh;
-  background-color: #F8E3F3 ;
+  background-color: #f8e3f3;
 }
 
 nav {
@@ -20,21 +20,20 @@ nav {
   border-radius: 8px;
 }
 
-#user-balance, .user-profile {
-  /* margin: 0.5rem; */
+#user-balance,
+.user-profile {
   padding: 20px;
   border-radius: 8px;
   font-size: 1.4rem;
-  color: #FFA07A ;
+  color: #ffa07a;
   font-weight: bolder;
 }
-#user-name, #user-logo
-{
+#user-name,
+#user-logo {
   font-size: 1.35rem;
   padding: 2px;
 }
 #map {
-  /* border: 2px solid black; */
   height: 69vh;
   margin: 0.5rem;
   border-radius: 8px;
@@ -42,29 +41,24 @@ nav {
 
 footer {
   margin: 0.5rem;
-  /* border: 2px solid black; */
-  /* height: 17.5vh; */
-  /* border-radius: 8px; */
 }
 
 #distanceForm {
-
   display: flex;
-  flex-direction: column; /* Change to column layout */
-  /* align-items: center; */
+  flex-direction: column;
   text-align: center;
 }
 
 .pickup-info,
 .destination-info {
-  width: 80%; 
+  width: 80%;
   padding: 0.5rem;
   margin: 0.2rem;
   border-radius: 8px;
 }
 
 .confirm-button {
-  width: 80%; 
+  width: 80%;
   margin: 0.3rem;
   padding: 0.5rem;
   background-color: #3498db;
@@ -78,8 +72,7 @@ footer {
   justify-content: space-evenly;
 }
 
-#user-logo
-{
+#user-logo {
   border: 2px solid black;
   border-radius: 50%;
   padding: 0.3rem;
@@ -87,17 +80,14 @@ footer {
   text-align: center;
 }
 
-.custom-result
-{
+.custom-result {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid black; */
   height: 17vh;
   font-size: 1.3rem;
 }
-#result
-{
+#result {
   font-size: 1.3rem;
   text-align: center;
   position: relative;
