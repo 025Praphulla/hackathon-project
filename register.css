@@ -69,6 +69,7 @@ form
 {
     margin: 1rem 2rem 1rem 2rem;
     background-color: #9B59B6;
+    color: white;
 }
 #register:hover
 {
@@ -101,9 +102,9 @@ form
     margin-left: 1rem ;
 }
 #logophoto{
-    height: 100px;
+    height: 150px;
     width:200px;
-
+    border-radius: 8px;
 }
 .logo{
     display:flex;
