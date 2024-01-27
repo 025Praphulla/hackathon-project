@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var map = L.map("map").setView([27.7017, 85.3240], 13); // Centered on Maitighar, Kathmandu
+  var map = L.map("map").setView([27.7017, 85.324], 13);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
   var pickupMarker = L.marker([0, 0], { draggable: false });
@@ -14,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }).addTo(map);
 
   var fare;
+  var distance;
 
   document.getElementById("distanceForm").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         control.setWaypoints(waypoints);
 
-        var distance =
-          pickupMarker.getLatLng().distanceTo(destinationMarker.getLatLng()) / 1000; // in kilometers
+        distance =
+          pickupMarker.getLatLng().distanceTo(destinationMarker.getLatLng()) /
+          1000; // in kilometers
 
-        // Calculate fare based on distance
         if (distance <= 5) {
           fare = 20;
         } else if (distance > 5 && distance <= 10) {
@@ -63,21 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
           fare = 30;
         }
 
-        // Display the result and QR code divs
         document.getElementById("result").innerHTML =
           "Distance: " + distance.toFixed(2) + " km <br> Fare: NPR " + fare;
 
-        // Call generateQR with the calculated fare amount
         generateQR(fare);
 
-        // Hide form elements
         document.getElementById("distanceForm").style.display = "none";
-
-        // Display the result and QR code divs
         document.getElementById("result").style.display = "block";
         document.getElementById("qr-code").style.display = "block";
-
-        scanQR(fare);
       })
       .catch(function (error) {
         console.error("Error:", error);
@@ -85,33 +78,44 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function generateQR(fareAmount) {
-    // Assuming you have a container with the id "qr-code" in your HTML where you want to display the QR code
     var qrCode = new QRCode("qr-code", {
-      text: "receipt.html", // Fix the typo in the URL
+      text: "reciept",
       width: 128,
       height: 128,
     });
 
-    // Get the QR code container element
     var qrCodeContainer = document.getElementById("qr-code");
 
-    // Add a click event listener to the container
     qrCodeContainer.addEventListener("click", function () {
-      // Replace "try.html" with the actual URL you want to open in the same tab
-      window.location.href = "receipt.html";
+      document.getElementById("result").style.display = "none";
+      document.getElementById("qr-code").style.display = "none";
+
+      scanQR(fare);
+      var newElement = document.createElement("div");
+
+      newElement.innerHTML =
+        "Distance: " +
+        distance.toFixed(2) +
+        " km <br> Fare: NPR " +
+        fare +
+        "<br> Pickup Location: " +
+        document.getElementById("pickup").value +
+        "<br> Destination: " +
+        document.getElementById("destination").value +
+        "<br> Remaining Balance: Rs " +
+        balance;
+
+      newElement.classList.add("custom-result");
+
+      document.body.appendChild(newElement);
     });
   }
 
   var balance = 500;
   document.getElementById("user-balance").innerHTML = "Balance: Rs " + balance;
 
-// Function to simulate scanning QR code and update balance
-function scanQR(fareAmount) {
-  // Simulate processing transaction and updating balance
-  balance -= fareAmount;
-  document.getElementById("user-balance").innerHTML = "Balance: Rs " + balance;
-}
-
-
-
+  function scanQR(fareAmount) {
+    balance -= fareAmount;
+    document.getElementById("user-balance").innerHTML = "Balance: Rs " + balance;
+  }
 });
