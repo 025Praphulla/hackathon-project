@@ -35,8 +35,9 @@
     <nav>
       <div id="user-balance"></div>
       <div class="user-profile">
-        <div><i class="ph ph-user"  id="user-logo"></i>
-        <span id="user-name" ></span></div>
+        <div>
+          <i class="ph ph-user" id="user-logo"></i> <span id="user-name"></span>
+        </div>
       </div>
     </nav>
     <div id="map"></div>
@@ -44,25 +45,32 @@
     <footer>
       <form id="distanceForm">
         <div class="pickup-section">
-          <input
-            type="text"
-            id="pickup"
-            name="pickup"
-            class="pickup-info"
-            placeholder="Pickup Location:"
-            required
-          />
+          <select id="pickup" name="pickup" class="pickup-info" required>
+            <option value="" disabled selected hidden>Pickup Location:</option>
+            <option value="Maitighar">Maitighar</option>
+            <option value="Koteshwor">Koteshwor</option>
+            <option value="Naya Baneshwor">Naya Baneshwor</option>
+            <option value="New Road">New Road</option>
+            <option value="Chabahil">Chabahil</option>
+          </select>
         </div>
 
         <div class="destination-section">
-          <input
-            type="text"
+          <select
             id="destination"
             name="destination"
             class="destination-info"
-            placeholder="Destination Location:"
             required
-          />
+          >
+            <option value="" disabled selected hidden>
+              Destination Location:
+            </option>
+            <option value="Maitighar">Maitighar</option>
+            <option value="Koteshwor">Koteshwor</option>
+            <option value="Naya Baneshwor">Naya Baneshwor</option>
+            <option value="New Road">New Road</option>
+            <option value="Chabahil">Chabahil</option>
+          </select>
         </div>
 
         <div class="confirm-section">
