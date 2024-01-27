@@ -1,0 +1,54 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header
+{
+    height: 12vh;
+    border: 2px solid black;
+    background-color: #997e93;
+    color: white;
+    text-align: center;
+}
+h1
+{
+    margin: 0.4rem;
+}
+main
+{
+    height: 80vh;
+    border: 2px solid black;
+}
+
+footer
+{
+    height: 8vh;
+    border: 2px solid black;
+}
+nav {
+    display: flex;
+    justify-content: space-around; /* Optional: Adjust as needed */
+    align-items: center; /* Optional: Adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 10px; /* Adjust as needed */
+    /* margin: 1rem; */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    margin: 1rem;
+}

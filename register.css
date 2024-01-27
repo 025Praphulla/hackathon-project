@@ -132,4 +132,10 @@ p{
     font-size: 20px;
 
 }
+@media screen and (max-width: 320px) {
 
+    .askuser{
+        font-size: 5px;
+        text-align: center;
+    }
+}

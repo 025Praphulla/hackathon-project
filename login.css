@@ -58,7 +58,7 @@ form {
   transition: 200ms all ease-in-out;
 }
 #login {
-  margin: 1rem 2rem 1rem 2rem;
+  margin: 1rem 2rem 0.5rem 2rem;
   background-color: #9b59b6;
   color: white;
 }
@@ -125,4 +125,35 @@ p {
 }
 .info {
   padding: 10px;
+}
+.info{
+  padding:10px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+      width: 95%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .container {
+      width: 100%;
+      margin-top: 0;
+      
+  }
+  #display-login{
+    margin-top: 0;
+  }
+  .askuser p{
+    font-size:17px;
+    
+  }
+  #username{
+    margin-bottom:5px;
+  }
 }
