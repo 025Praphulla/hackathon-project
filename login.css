@@ -37,9 +37,6 @@ body {
   flex: 1.2;
   padding: 30px;
   border:0.5px solid black;
-  
- 
- 
 
 }
 
@@ -113,4 +110,27 @@ form {
 }
 button:hover{
   cursor:pointer;
+}
+h2{
+  color:#FFA07A;
+  display:flex;
+  justify-content:center;
+  margin-top: 60px;
+  
+}
+#logo{
+  height:80px;
+  width:100px;
+  display:flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius:8px;
+}
+p{
+  font-size: 20px;
+  margin-top: 20px;
+
+}
+img{
+  margin-top:50px;
 }

@@ -113,4 +113,23 @@ form
 button:hover{
     cursor: pointer;
 }
+h2{
+    color:#FFA07A;
+    display:flex;
+    justify-content:center;
+    margin-top: 60px;
+    
+}
+#logo{
+    height:80px;
+    width:100px;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius:8px;
+}
+p{
+    font-size: 20px;
+
+}
 
