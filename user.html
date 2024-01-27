@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="user.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -21,17 +24,24 @@
                 <button type="submit">Change Phone Number</button>
             </form>
         </div>
-        <p><a href="home.html">Logout</a></p>
+        <p><a href="index.html">Logout</a></p>
+        
     </div>
 
     <script>
         // Retrieve user information from local storage
         var username = localStorage.getItem("username");
-        var phone = localStorage.getItem("phone");
+        var phone = localStorage.getItem("phoneNumber");
 
         // Display user information in the profile
         document.getElementById("username").textContent = username;
-        document.getElementById("phone").textContent = phone;
+
+        // Check if the phone number is available and display it
+        if (phone) {
+            document.getElementById("phone").textContent = phone;
+        } else {
+            document.getElementById("phone").textContent = "Phone number not available";
+        }
 
         // Handle form submission to change phone number
         document.getElementById("changePhoneForm").addEventListener("submit", function(event) {

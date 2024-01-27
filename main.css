@@ -15,9 +15,8 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 8vh;
-  border: 2px solid black;
-  margin: 0.5rem;
-  border-radius: 8px;
+  background-color: #997e93;
+  margin-bottom: 0.5rem;
 }
 
 #user-balance,
@@ -41,6 +40,7 @@ nav {
 
 footer {
   margin: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 #distanceForm {

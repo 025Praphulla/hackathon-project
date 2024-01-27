@@ -40,8 +40,10 @@ body
     background-color: #F8E3F3 ;
     /* border: 2px solid black; */
     height: 75vh;
-    width: 80%;
+    width: 30%;
     border-radius: 8px;
+    justify-content: center;
+    align-items: center;
 }
 form
 {
@@ -54,7 +56,7 @@ form
     text-align: center;
     margin: 2rem 2rem 0 2rem;
 }
-#username, #password, #register
+#username, #password, #register, #phone-number
 {
     border: 2px solid black;
     width: 80%;
@@ -92,11 +94,11 @@ form
     text-decoration: none;
     color: green;
 }
-.username, .password
+.username, .password, .phone-number
 {
     display: flex;
 }
-.username i, .password i {
+.username i, .password i, .phone-number i {
     display: flex;
     align-items: center;
     margin-left: 1rem ;

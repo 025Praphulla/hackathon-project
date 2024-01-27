@@ -1,99 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Include Leaflet library -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<head>
+  <!-- Include Leaflet library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- Include Leaflet Routing Machine library -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
-    />
-    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <!-- Include Leaflet Routing Machine library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 
-    <!-- Include QRCode.js library -->
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <!-- Include QRCode.js library -->
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
-    <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <!-- Include HTML5 QRCode library -->
-    <script src="https://rawgit.com/sitepoint-editors/html5-qrcode/gh-pages/js/html5-qrcode.js"></script>
+  <!-- Include HTML5 QRCode library -->
+  <script src="https://rawgit.com/sitepoint-editors/html5-qrcode/gh-pages/js/html5-qrcode.js"></script>
 
-    <!-- Your existing CSS file -->
-    <link rel="stylesheet" href="main.css" />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav>
-      <div id="user-balance"></div>
-      <div class="user-profile">
-        <div>
-          <i class="ph ph-user" id="user-logo"></i> <span id="user-name"></span>
-        </div>
+  <!-- Your existing CSS file -->
+  <link rel="stylesheet" href="main.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav>
+    <div id="user-balance"></div>
+    <div class="user-profile">
+      <div>
+        <!-- Add an id to the user icon for easy selection -->
+        <i class="ph ph-user" id="user-logo"></i> <span id="user-name"></span>
       </div>
-    </nav>
-    <div id="map"></div>
+    </div>
+  </nav>
+  <div id="map"></div>
 
-    <footer>
-      <form id="distanceForm">
-        <div class="pickup-section">
-          <select id="pickup" name="pickup" class="pickup-info" required>
-            <option value="" disabled selected hidden>Pickup Location:</option>
-            <option value="Maitighar">Maitighar</option>
-            <option value="Koteshwor">Koteshwor</option>
-            <option value="Naya Baneshwor">Naya Baneshwor</option>
-            <option value="New Road">New Road</option>
-            <option value="Chabahil">Chabahil</option>
-          </select>
-        </div>
-
-        <div class="destination-section">
-          <select
-            id="destination"
-            name="destination"
-            class="destination-info"
-            required
-          >
-            <option value="" disabled selected hidden>
-              Destination Location:
-            </option>
-            <option value="Maitighar">Maitighar</option>
-            <option value="Koteshwor">Koteshwor</option>
-            <option value="Naya Baneshwor">Naya Baneshwor</option>
-            <option value="New Road">New Road</option>
-            <option value="Chabahil">Chabahil</option>
-          </select>
-        </div>
-
-        <div class="confirm-section">
-          <button type="submit" class="confirm-button">
-            Calculate Fare and Distance
-          </button>
-        </div>
-      </form>
-      <div class="final-user-info">
-        <div id="result"></div>
-        <div id="qr-code"></div>
+  <footer>
+    <form id="distanceForm">
+      <div class="pickup-section">
+        <select id="pickup" name="pickup" class="pickup-info" required>
+          <option value="" disabled selected hidden>Pickup Location:</option>
+          <option value="Maitighar">Maitighar</option>
+          <option value="Koteshwor">Koteshwor</option>
+          <option value="Naya Baneshwor">Naya Baneshwor</option>
+          <option value="New Road">New Road</option>
+          <option value="Chabahil">Chabahil</option>
+        </select>
       </div>
-    </footer>
-    <script src="main.js"></script>
-    <script>
-      // Retrieve username from local storage
-      const username = localStorage.getItem("username");
 
-      // Display username in the user profile section
-      const userNameElement = document.getElementById("user-name");
-      if (username) {
-        userNameElement.textContent = username;
-      }
-    </script>
-  </body>
+      <div class="destination-section">
+        <select id="destination" name="destination" class="destination-info" required>
+          <option value="" disabled selected hidden>Destination Location:</option>
+          <option value="Maitighar">Maitighar</option>
+          <option value="Koteshwor">Koteshwor</option>
+          <option value="Naya Baneshwor">Naya Baneshwor</option>
+          <option value="New Road">New Road</option>
+          <option value="Chabahil">Chabahil</option>
+        </select>
+      </div>
+
+      <div class="confirm-section">
+        <button type="submit" class="confirm-button">Calculate Fare and Distance</button>
+      </div>
+    </form>
+    <div class="final-user-info">
+      <div id="result"></div>
+      <div id="qr-code"></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Retrieve username from local storage
+    const username = localStorage.getItem("username");
+
+    // Display username in the user profile section
+    const userNameElement = document.getElementById("user-name");
+    if (username) {
+      userNameElement.textContent = username;
+    }
+
+    // Add click event listener to user icon
+    document.getElementById("user-logo").addEventListener("click", function() {
+      // Redirect to user.html
+      window.location.href = "user.html";
+    });
+  </script>
+</body>
 </html>
