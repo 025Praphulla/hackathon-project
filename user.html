@@ -11,14 +11,13 @@
         <h2>User Profile</h2>
         <div class="profile-info">
             <p><strong>Username:</strong> <span id="username"></span></p>
-            <p><strong>Email:</strong> <span id="email"></span></p>
             <p><strong>Phone Number:</strong> <span id="phone"></span></p>
         </div>
         <div class="change-phone">
             <h3>Change Phone Number</h3>
             <form id="changePhoneForm">
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
                 <input type="text" id="newPhone" name="newPhone" placeholder="New Phone Number" required>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
                 <button type="submit">Change Phone Number</button>
             </form>
         </div>
@@ -28,20 +27,18 @@
     <script>
         // Retrieve user information from local storage
         var username = localStorage.getItem("username");
-        var email = localStorage.getItem("email");
         var phone = localStorage.getItem("phone");
 
         // Display user information in the profile
         document.getElementById("username").textContent = username;
-        document.getElementById("email").textContent = email;
         document.getElementById("phone").textContent = phone;
 
         // Handle form submission to change phone number
         document.getElementById("changePhoneForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            var confirmPassword = document.getElementById("confirmPassword").value;
             var newPhone = document.getElementById("newPhone").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
 
             // Retrieve stored password from local storage
             var storedPassword = localStorage.getItem("password");
