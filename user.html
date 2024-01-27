@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="profile-info">
+            <p><strong>Username:</strong> <span id="username"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Phone Number:</strong> <span id="phone"></span></p>
+        </div>
+        <div class="change-phone">
+            <h3>Change Phone Number</h3>
+            <form id="changePhoneForm">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                <input type="text" id="newPhone" name="newPhone" placeholder="New Phone Number" required>
+                <button type="submit">Change Phone Number</button>
+            </form>
+        </div>
+        <p><a href="home.html">Logout</a></p>
+    </div>
+
+    <script>
+        // Retrieve user information from local storage
+        var username = localStorage.getItem("username");
+        var email = localStorage.getItem("email");
+        var phone = localStorage.getItem("phone");
+
+        // Display user information in the profile
+        document.getElementById("username").textContent = username;
+        document.getElementById("email").textContent = email;
+        document.getElementById("phone").textContent = phone;
+
+        // Handle form submission to change phone number
+        document.getElementById("changePhoneForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var newPhone = document.getElementById("newPhone").value;
+
+            // Retrieve stored password from local storage
+            var storedPassword = localStorage.getItem("password");
+
+            // Check if the entered password matches the stored password
+            if (confirmPassword !== storedPassword) {
+                alert("Incorrect password");
+                return;
+            }
+
+            // Update the phone number in local storage
+            localStorage.setItem("phone", newPhone);
+
+            // Update the phone number displayed in the profile
+            document.getElementById("phone").textContent = newPhone;
+
+            alert("Phone number updated successfully");
+        });
+    </script>
+</body>
+</html>
