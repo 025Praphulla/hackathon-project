@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Include Leaflet library -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <!-- Include Leaflet Routing Machine library -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+    />
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 
     <!-- Include QRCode.js library -->
@@ -27,12 +30,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
       rel="stylesheet"
     />
-</head>
-<body>
+  </head>
+  <body>
     <nav>
       <div id="user-balance"></div>
       <div class="user-profile">
-        <div><i class="ph ph-user" id="user-logo"></i></div>
+        <div><i class="ph ph-user"  id="user-logo"></i>
+        <span id="user-name" ></span></div>
       </div>
     </nav>
     <div id="map"></div>
@@ -62,7 +66,9 @@
         </div>
 
         <div class="confirm-section">
-          <button type="submit" class="confirm-button">Calculate Fare and Distance</button>
+          <button type="submit" class="confirm-button">
+            Calculate Fare and Distance
+          </button>
         </div>
       </form>
       <div class="final-user-info">
@@ -70,6 +76,16 @@
         <div id="qr-code"></div>
       </div>
     </footer>
-    <script type="module" src="main.js"></script>
+    <script src="main.js"></script>
+    <script>
+      // Retrieve username from local storage
+      const username = localStorage.getItem("username");
+
+      // Display username in the user profile section
+      const userNameElement = document.getElementById("user-name");
+      if (username) {
+        userNameElement.textContent = username;
+      }
+    </script>
   </body>
 </html>

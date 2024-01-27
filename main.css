@@ -13,7 +13,6 @@ body {
 
 nav {
   display: flex;
-  columns: 2;
   justify-content: space-between;
   height: 8vh;
   border: 2px solid black;
@@ -25,11 +24,15 @@ nav {
   /* margin: 0.5rem; */
   padding: 20px;
   border-radius: 8px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #FFA07A ;
   font-weight: bolder;
 }
-
+#user-name, #user-logo
+{
+  font-size: 1.35rem;
+  padding: 2px;
+}
 #map {
   /* border: 2px solid black; */
   height: 69vh;
@@ -45,6 +48,7 @@ footer {
 }
 
 #distanceForm {
+
   display: flex;
   flex-direction: column; /* Change to column layout */
   /* align-items: center; */
@@ -81,4 +85,21 @@ footer {
   padding: 0.3rem;
   cursor: pointer;
   text-align: center;
+}
+
+.custom-result
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+  height: 17vh;
+  font-size: 1.3rem;
+}
+#result
+{
+  font-size: 1.3rem;
+  text-align: center;
+  position: relative;
+  top: 2.5rem;
 }
