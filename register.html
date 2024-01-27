@@ -30,6 +30,16 @@
             required
           />
         </div>
+        <div class="phone-number">
+          <i class="ph ph-phone"></i>
+          <input
+            type="tel"
+            id="phone-number"
+            name="phone-number"
+            placeholder="Phone Number: "
+            required
+          />
+        </div>
         <div class="password">
           <i class="ph ph-lock"></i>
           <input
@@ -54,7 +64,8 @@
 
   </div>
 
-    <script>
+    <!-- <script> -->
+      <script>
       document
         .getElementById("show-password")
         .addEventListener("change", function () {
@@ -67,12 +78,14 @@
         .addEventListener("submit", function (event) {
           event.preventDefault();
 
-          // Get username and password from the form
+          // Get username, phone number, and password from the form
           var username = document.getElementById("username").value;
+          var phoneNumber = document.getElementById("phone-number").value;
           var password = document.getElementById("password").value;
 
           // Save user details to local storage
           localStorage.setItem("username", username);
+          localStorage.setItem("phoneNumber", phoneNumber); // Save phone number
           localStorage.setItem("password", password);
 
           // Redirect user to login page

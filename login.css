@@ -18,8 +18,10 @@ body {
   /*border: 2px solid black;*/
   background-color: #f8e3f3;
   height: 75vh;
-  width: 80%;
+  width: 30%;
   border-radius: 8px;
+  justify-content: center;
+  align-items: center;
 }
 .leftside {
   flex: 1;
@@ -49,7 +51,7 @@ form {
 
 #username,
 #password,
-#login {
+#login, #phone-number {
   border: 2px solid black;
   width: 80%;
   margin: 0.5rem 2rem 0.5rem 0.5rem;
@@ -81,11 +83,11 @@ form {
 }
 
 .username,
-.password {
+.password, .phone-number {
   display: flex;
 }
 .username i,
-.password i {
+.password i, .phone-number i {
   display: flex;
   align-items: center;
   margin-left: 1rem;
